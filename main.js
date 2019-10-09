@@ -8,16 +8,18 @@ window.onload = function () {
             .then(users => {
                 if ($('.btn_load').val() == 0) {
                     $('.list_conteiner').empty()
-                    $('.btn_load').attr('val = 1');
+                    $('.btn_load').attr('value', 1)
 
                     for (let i = 0; i < users.length; i++) {
+                        
                         $('.list_conteiner').append(
-                            `<div class="items_block" id="${users[i].id}">
-                                    <input type="checkbox" value="0" class="item_input" id="${users[i].id}">
+                            `<div class="items_block" id="bl_${users[i].id}">
+                                        <input type="checkbox" value="0" class="item_check" id="${users[i].id}">
+                                        <label class="label_input" for="${users[i].id}"></label>
                                     <div class='item_info_block'>
                                         <h1 class="serial_nomber" >${users[i].id}</h1>
                                         <div class="contact_info_block">
-                                            <h1>${users[i].name}</h1>
+                                            <h1 class="userName">${users[i].name}</h1>
                                             <h2>${users[i].username}</h2>
                                         </div>
                                         <div class="emain_info_block">
@@ -31,25 +33,24 @@ window.onload = function () {
                 } else {
                     alert('Весь список загружен')
                 }
-
             })
     })
 
     $('.btn_clear').on('click', () => {
-        let checkboxs = document.querySelectorAll('.item_input')
+        $('.btn_load').attr('value', 0)
+
+        let checkboxs = document.querySelectorAll('.item_check')
         let delCh = $(':checkbox:checked')
         
-        for (i = 0; i < delCh.length; i++) {
-            let y = delCh[i].id
-            $(`#${y}`).fadeOut(1250)
-        }
-        $('#')
-        setTimeout(() => {
             for (i = 0; i < delCh.length; i++) {
                 let y = delCh[i].id
-                $(`#${y}`).remove()
+
+                $(`#bl_${y}`).fadeOut(300)
+                setTimeout(() => {
+                    $(`#bl_${y}`).remove()
+                }, 300)
             }
-        }, 1250)
+        
         
     })
 }

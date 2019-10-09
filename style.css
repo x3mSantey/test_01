@@ -1,13 +1,26 @@
 html,body{
     margin: 0;
     padding: 0;
+
+    background-color: #BFC3BA;
 }
 
 
 @font-face{
-
-    font-family: 'RFKrabuler-Regular';  
-    src: url('/fonts/RFKrabuler-Regular.ttf');
+    font-family: 'RFKrabuler_Regular';  
+    src: url('fonts/RFKrabuler_Regular.ttf');
+}
+@font-face{
+    font-family: 'Neothic';  
+    src: url('fonts/Neothic.ttf');
+}
+@font-face{
+    font-family: 'Schule';  
+    src: url('fonts/Schule.ttf');
+}
+@font-face{
+    font-family: 'Akademitscheskaya';  
+    src: url('fonts/Akademitscheskaya.ttf');
 }
 
 
@@ -25,9 +38,11 @@ html,body{
     width: 750px;
     box-sizing: content-box;
 
-    background-color: #EDECEF;
+    background-color: #2F2235;
 }
 .items_block{
+    display: none;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,19 +50,35 @@ html,body{
     position: relative;
 
     box-sizing: content-box;
-    height: 120px;
+    height: 119px;
 
-    margin: 10px 10px 10px 0;
+    border-bottom: 1px solid #60495A;
+    margin: 10px 10px 10px 10px;
 }
-.item_input{
-    width: 20px;
-    height: 20px;
+.label_input{
+    content: '';
+    display: block;
+    
+    width: 25px;
+    height: 25px;
 
     margin: 0 10px 0 10px;
 
-    border: 5px solid black;
+    background-color: #CA000D;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 
-    background-color: #FEFEFF;
+    transition-duration: 0.1s;
+}
+.item_check:checked + .label_input{
+    width: 25px;
+    height: 25px;
+
+    border: none;
+    background-color: #02D317;
+    clip-path: polygon(15% 29%, 0 58%, 50% 100%, 100% 40%, 80% 0%, 49% 69%);
+}
+.item_check{
+    display: none;
 }
 .item_info_block{
     display: flex;
@@ -57,12 +88,9 @@ html,body{
     width: 100%;
     height: 100px;
 
-    background-color: #fff;
-}
-.serial_nomber{
-    padding-left: 25px;
-    font-size: 42px;
-    color: green;
+    border-radius: 5px;
+
+    background-color: #60495A;
 }
 .contact_info_block{
     padding-left: 25px;
@@ -77,25 +105,64 @@ html,body{
 
     position: relative;
     top: 20px;
-    left: 50%;
 
     width: 260px;
     height: 60px;
-
-    margin-left: -130px;
 }
 .btn{
     width: 120px;
     height: 35px;
 
     outline: none;
-    background-color: #809399;
+    background-color: #260C1A;
     border: none;
     border-radius: 5px;
 
     font-weight: bold;
     color: #fff;
 }
-h1{
-    font-family: 'RFKrabuler-Regular'; 
+.userName{
+    height: 40px;
+    font-family: 'Akademitscheskaya';  
+    font-weight: lighter;
+    color: #E9E9E9;
+}
+.serial_nomber{
+    position: relative;
+    top: -10px;
+
+    border-right: 1px solid #fff;
+    margin-top: 0;
+    font-family: 'Schule';
+    font-size: 32px;
+    color: #fff;
+    padding: 0 15px 0 15px;
+}
+h2{
+    font-family: 'Akademitscheskaya'; 
+    font-weight: inherit; 
+    color: #BFC3BA;
+}
+h4{
+    font-family: 'Neothic'; 
+    font-weight: inherit;
+    font-size: 14px;
+    color: #BFC3BA;
+}   
+
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #728388;
+    box-shadow: 0 0 5px #809399;
+}
+.label_input:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px #CA000D;
+}
+.userName:hover{
+    height: 38px;
+    cursor: pointer;
+    border-bottom: 2px solid #CA000D;
+    transition-duration: 0.5s;
 }
